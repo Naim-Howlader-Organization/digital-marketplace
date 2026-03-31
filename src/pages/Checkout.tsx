@@ -253,6 +253,7 @@ export default function Checkout() {
       <Navbar />
 
       {/* Header */}
+      {/* Header */}
       <section className="pt-20 pb-12 md:pt-28 md:pb-12 border-b border-border/50 bg-surface">
         <div className="container-wide">
           <motion.div
@@ -260,6 +261,7 @@ export default function Checkout() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            {/* Title */}
             <div className="flex items-center gap-3 mb-4">
               <Package className="w-8 h-8 text-primary" />
               <h1 className="text-4xl md:text-5xl font-heading font-bold">
@@ -268,72 +270,77 @@ export default function Checkout() {
             </div>
 
             {/* Progress Indicator */}
-            <div className="flex items-center gap-4 mt-8">
-              <div
-                className={`flex items-center gap-2 ${
-                  step === "shipping" ? "" : "opacity-60"
-                }`}
-              >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
+              {/* Step 1 */}
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm ${
+                  className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-medium text-xs sm:text-sm ${
                     step === "shipping"
                       ? "gradient-bg text-primary-foreground"
-                      : "bg-primary/20 text-primary"
+                      : step !== "shipping"
+                        ? "bg-primary/20 text-primary"
+                        : ""
                   }`}
                 >
                   {step === "shipping" ? (
                     "1"
                   ) : (
-                    <CheckCircle className="w-5 h-5" />
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </div>
-                <span className="font-medium">Shipping</span>
+                <span className="font-medium text-sm sm:text-base">
+                  Shipping
+                </span>
               </div>
 
-              <ChevronRight className="w-5 h-5 text-muted-foreground" />
+              {/* Chevron */}
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground hidden sm:block flex-shrink-0" />
 
-              <div
-                className={`flex items-center gap-2 ${
-                  step === "payment" ? "" : "opacity-60"
-                }`}
-              >
+              {/* Step 2 */}
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm ${
+                  className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-medium text-xs sm:text-sm ${
                     step === "payment"
                       ? "gradient-bg text-primary-foreground"
-                      : "bg-muted text-muted-foreground"
+                      : step !== "payment"
+                        ? "bg-muted text-muted-foreground"
+                        : ""
                   }`}
                 >
                   {step === "payment" ? (
                     "2"
                   ) : (
-                    <CheckCircle className="w-5 h-5" />
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </div>
-                <span className="font-medium">Payment</span>
+                <span className="font-medium text-sm sm:text-base">
+                  Payment
+                </span>
               </div>
 
-              <ChevronRight className="w-5 h-5 text-muted-foreground" />
+              {/* Chevron */}
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground hidden sm:block flex-shrink-0" />
 
-              <div
-                className={`flex items-center gap-2 ${
-                  step === "confirmation" ? "" : "opacity-60"
-                }`}
-              >
+              {/* Step 3 */}
+              <div className="flex items-center gap-2 flex-shrink-0">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm ${
+                  className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-medium text-xs sm:text-sm ${
                     step === "confirmation"
                       ? "gradient-bg text-primary-foreground"
-                      : "bg-muted text-muted-foreground"
+                      : step !== "confirmation"
+                        ? "bg-muted text-muted-foreground"
+                        : ""
                   }`}
                 >
                   {step === "confirmation" ? (
                     "3"
                   ) : (
-                    <CheckCircle className="w-5 h-5" />
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </div>
-                <span className="font-medium">Confirmation</span>
+                <span className="font-medium text-sm sm:text-base">
+                  Confirmation
+                </span>
               </div>
             </div>
           </motion.div>
@@ -793,9 +800,7 @@ export default function Checkout() {
                             className="w-12 h-12 rounded-lg object-cover"
                           />
                           <div className="flex-1 min-w-0">
-                            <p className="font-medium text-sm truncate">
-                              {item.name}
-                            </p>
+                            <p className="font-medium text-sm">{item.name}</p>
                             <p className="text-xs text-muted-foreground">
                               Qty: {item.quantity}
                             </p>

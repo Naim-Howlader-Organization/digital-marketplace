@@ -206,7 +206,7 @@ export default function Cart() {
                           <p className="text-xs text-primary font-medium mb-1">
                             {item.category}
                           </p>
-                          <h3 className="font-heading font-semibold text-foreground truncate">
+                          <h3 className="font-heading font-semibold text-foreground">
                             {item.name}
                           </h3>
                         </div>
@@ -299,7 +299,7 @@ export default function Cart() {
                       </button>
                     </div>
                   ) : (
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"
                         value={couponCode}
@@ -307,11 +307,11 @@ export default function Cart() {
                           setCouponCode(e.target.value.toUpperCase())
                         }
                         placeholder="Coupon code"
-                        className="flex-1 px-3 py-2 rounded-lg bg-muted/50 border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
+                        className="w-full sm:flex-1 px-3 py-2 rounded-lg bg-muted/50 border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
                       />
                       <button
                         onClick={applyCoupon}
-                        className="px-4 py-2 rounded-lg border border-border hover:bg-muted/50 transition-colors font-medium text-sm"
+                        className="w-full sm:w-auto px-4 py-2 rounded-lg border border-border hover:bg-muted/50 transition-colors font-medium text-sm"
                       >
                         Apply
                       </button>

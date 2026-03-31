@@ -9,9 +9,9 @@ const navLinks = [
   { label: "Home", to: "/" },
   { label: "Products", to: "/products" },
   { label: "Categories", to: "#", hasDropdown: true },
-  { label: "Pricing", to: "/#pricing" },
-  { label: "About", to: "/#about" },
-  { label: "Contact", to: "/#contact" },
+  { label: "Pricing", to: "/pricing" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export default function Navbar() {
@@ -90,7 +90,7 @@ export default function Navbar() {
             <Search className="w-5 h-5" />
           </button>
           <Link
-            to="/products"
+            to="/cart"
             className="p-2 rounded-lg hover:bg-muted/50 transition-colors text-muted-foreground hover:text-foreground relative"
           >
             <ShoppingCart className="w-5 h-5" />

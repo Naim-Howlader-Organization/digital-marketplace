@@ -1,16 +1,17 @@
+import logo from "@/assets/logo.jpg";
 import { Link } from "react-router-dom";
 
 const footerLinks = {
   Marketplace: [
     { label: "Browse Products", to: "/products" },
     { label: "Categories", to: "/products" },
-    { label: "Pricing", to: "/#pricing" },
+    { label: "Pricing", to: "/pricing" },
     { label: "New Arrivals", to: "/products" },
   ],
   Company: [
-    { label: "About", to: "/#about" },
+    { label: "About", to: "/about" },
     { label: "Careers", to: "#" },
-    { label: "Contact", to: "#" },
+    { label: "Contact", to: "/contact" },
     { label: "Blog", to: "#" },
   ],
   Support: [
@@ -28,9 +29,11 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 font-heading text-xl font-bold mb-4">
-              <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-                <span className="text-sm font-bold">D</span>
-              </div>
+              <img
+                src={logo}
+                alt="Skilled Zone"
+                className="w-8 h-8 rounded-lg object-cover"
+              />
               Skilled Zone
             </div>
             <p className="text-sm opacity-60 leading-relaxed">

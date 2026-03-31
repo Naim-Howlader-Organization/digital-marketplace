@@ -341,6 +341,10 @@ export default function Home() {
               640: { slidesPerView: 2, spaceBetween: 20 },
               1024: { slidesPerView: 3, spaceBetween: 20 },
             }}
+            navigation={{
+              nextEl: ".swiper-button-next-demo",
+              prevEl: ".swiper-button-prev-demo",
+            }}
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000, disableOnInteraction: true }}
             className="pb-10 relative"
@@ -364,14 +368,8 @@ export default function Home() {
                 </div>
               </SwiperSlide>
             ))}
-            <div
-              className="swiper-button-prev swiper-button-prev-demo"
-              style={{ left: "0px" }}
-            />
-            <div
-              className="swiper-button-next swiper-button-next-demo"
-              style={{ right: "0px" }}
-            />
+            <div className="swiper-button-prev swiper-button-prev-demo" />
+            <div className="swiper-button-next swiper-button-next-demo" />
           </Swiper>
         </div>
       </section>
@@ -392,6 +390,10 @@ export default function Home() {
               640: { slidesPerView: 2, spaceBetween: 20 },
               1024: { slidesPerView: 3, spaceBetween: 20 },
             }}
+            navigation={{
+              nextEl: ".swiper-button-next-testimonials",
+              prevEl: ".swiper-button-prev-testimonials",
+            }}
             pagination={{ clickable: true }}
             autoplay={{ delay: 6000, disableOnInteraction: true }}
             className="pb-10 relative"
@@ -401,14 +403,8 @@ export default function Home() {
                 <TestimonialCard testimonial={t} />
               </SwiperSlide>
             ))}
-            <div
-              className="swiper-button-prev swiper-button-prev-testimonials"
-              style={{ left: "0px" }}
-            />
-            <div
-              className="swiper-button-next swiper-button-next-testimonials"
-              style={{ right: "0px", color: "black" }}
-            />
+            <div className="swiper-button-prev swiper-button-prev-testimonials" />
+            <div className="swiper-button-next swiper-button-next-testimonials" />
           </Swiper>
         </div>
       </section>

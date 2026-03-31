@@ -1,3 +1,4 @@
+import logo from "@/assets/logo.jpg";
 import { motion } from "framer-motion";
 import { ArrowRight, Lock, Mail, User } from "lucide-react";
 import { useState } from "react";
@@ -22,7 +23,11 @@ export default function AuthPage() {
           className="relative text-primary-foreground text-center max-w-md"
         >
           <div className="w-16 h-16 rounded-2xl bg-primary-foreground/10 flex items-center justify-center mx-auto mb-6">
-            <span className="text-3xl font-heading font-bold">D</span>
+            <img
+              src={logo}
+              alt="Skilled Zone"
+              className="w-14 h-14 rounded-lg object-cover"
+            />
           </div>
           <h2 className="text-3xl font-heading font-bold mb-4">
             Welcome to Skilled Zone
@@ -45,11 +50,11 @@ export default function AuthPage() {
             to="/"
             className="flex items-center gap-2 font-heading text-xl font-bold mb-8 lg:hidden"
           >
-            <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-              <span className="text-primary-foreground text-sm font-bold">
-                D
-              </span>
-            </div>
+            <img
+              src={logo}
+              alt="Skilled Zone"
+              className="w-8 h-8 rounded-lg object-cover"
+            />
             <span className="gradient-text">Skilled Zone</span>
           </Link>
 

@@ -31,9 +31,12 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
                 <span className="text-sm font-bold">D</span>
               </div>
-              DigiMart
+              Skilled Zone
             </div>
-            <p className="text-sm opacity-60 leading-relaxed">The premier marketplace for digital products, tools, and services for modern businesses.</p>
+            <p className="text-sm opacity-60 leading-relaxed">
+              The premier marketplace for digital products, tools, and services
+              for modern businesses.
+            </p>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
@@ -41,7 +44,12 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link to={link.to} className="text-sm opacity-60 hover:opacity-100 transition-opacity">{link.label}</Link>
+                    <Link
+                      to={link.to}
+                      className="text-sm opacity-60 hover:opacity-100 transition-opacity"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -49,10 +57,18 @@ export default function Footer() {
           ))}
         </div>
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm opacity-50">© 2024 DigiMart. All rights reserved.</p>
+          <p className="text-sm opacity-50">
+            © 2024 Skilled Zone. All rights reserved.
+          </p>
           <div className="flex items-center gap-4">
             {["Twitter", "GitHub", "LinkedIn", "YouTube"].map((s) => (
-              <a key={s} href="#" className="text-sm opacity-50 hover:opacity-100 transition-opacity">{s}</a>
+              <a
+                key={s}
+                href="#"
+                className="text-sm opacity-50 hover:opacity-100 transition-opacity"
+              >
+                {s}
+              </a>
             ))}
           </div>
         </div>

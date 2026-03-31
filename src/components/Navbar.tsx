@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Search, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { categories } from "@/data/marketplace";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.jpg";
 
 const navLinks = [
   { label: "Home", to: "/" },

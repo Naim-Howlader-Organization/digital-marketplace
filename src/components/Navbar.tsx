@@ -25,9 +25,7 @@ export default function Navbar() {
       <div className="container-wide flex items-center justify-between h-16">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-heading text-xl font-bold">
-          <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-bold">D</span>
-          </div>
+          <img src={logo} alt="DigiMart" className="w-9 h-9 rounded-lg object-cover" />
           <span className="gradient-text">DigiMart</span>
         </Link>
 

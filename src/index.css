@@ -62,15 +62,15 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(280,60%,55%)];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-r from-primary to-[hsl(280,60%,55%)];
+    @apply bg-gradient-to-r from-primary to-accent;
   }
 
   .gradient-bg-warm {
-    @apply bg-gradient-to-r from-accent to-[hsl(350,80%,55%)];
+    @apply bg-gradient-to-r from-accent to-[hsl(180,70%,40%)];
   }
 
   .glass-card {

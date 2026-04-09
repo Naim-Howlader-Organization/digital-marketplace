@@ -8,8 +8,9 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "Products", to: "/products" },
-  { label: "Categories", to: "#", hasDropdown: true },
+  { label: "Services", to: "#", hasDropdown: true },
   { label: "Pricing", to: "/pricing" },
+  { label: "Dollar Load", to: "/dollar-load" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
@@ -47,7 +48,7 @@ export default function Navbar() {
             >
               <Link
                 to={link.to}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1 ${
+                className={`px-3 py-2 rounded-lg text-[13px] font-medium transition-colors flex items-center gap-1 uppercase ${
                   location.pathname === link.to
                     ? "text-primary bg-primary/5"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -61,7 +62,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
-                  className="absolute top-full left-0 mt-1 w-64 bg-card rounded-xl border border-border shadow-card p-2"
+                  className="absolute top-full left-0 mt-0 w-64 bg-card rounded-xl border border-border shadow-card p-2"
                 >
                   {categories.map((cat) => (
                     <Link

@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import SectionHeading from "@/components/SectionHeading";
+import { contactInfo as contactInformation } from "@/data/contact";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -18,49 +18,26 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "support@skilledzone.com",
+    value: contactInformation.email,
     description: "We'll respond within 24 hours",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+1 (555) 123-4567",
-    description: "Mon-Fri, 9AM-6PM EST",
+    value: contactInformation.phone,
+    description: "Sat-Thu, 10:00 PM – 6:00 AM",
   },
   {
     icon: MapPin,
     title: "Address",
-    value: "San Francisco, CA 94105",
-    description: "United States",
+    value: contactInformation.address,
+    description: "Bangladesh",
   },
   {
     icon: Clock,
     title: "Support Hours",
     value: "24/7 Live Chat",
     description: "Always available for you",
-  },
-];
-
-const faqs = [
-  {
-    question: "How long does an order typically take to deliver?",
-    answer:
-      "Most digital products are delivered instantly upon purchase. Some products may require manual delivery, which typically happens within 2-4 hours.",
-  },
-  {
-    question: "Can I get a refund if I'm not satisfied?",
-    answer:
-      "Yes, we offer a 14-day money-back guarantee on all products. If you're not satisfied, simply contact our support team.",
-  },
-  {
-    question: "How do I become a seller on Skilled Zone?",
-    answer:
-      "You can apply to become a seller by visiting our seller application page. We'll review your application and get back to you within 3-5 business days.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We accept all major credit cards, PayPal, bank transfers, and multiple cryptocurrency options.",
   },
 ];
 
@@ -272,41 +249,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding bg-surface">
-        <div className="container-wide">
-          <SectionHeading
-            tag="FAQ"
-            title="Frequently Asked Questions"
-            description="Find answers to common questions"
-          />
-          <div className="max-w-2xl mx-auto space-y-4">
-            {faqs.map((faq, i) => (
-              <motion.details
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="group p-6 rounded-xl border border-border bg-card cursor-pointer hover:border-primary/30 transition-colors"
-              >
-                <summary className="flex items-center justify-between font-heading font-semibold text-foreground list-none">
-                  <span>{faq.question}</span>
-                  <span className="text-primary transition-transform group-open:rotate-180">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </p>
-              </motion.details>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Additional Resources */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

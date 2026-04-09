@@ -2,15 +2,15 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import CategoryCard from "@/components/CategoryCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import PricingCard from "@/components/PricingCard";
+import Blog from "@/components/pages/home/Blog";
+import LLCPricing from "@/components/pages/home/LLCPricing";
+import POSPricing from "@/components/pages/home/POSPricing";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
 import {
   benefits,
-  blogPosts,
   categories,
-  pricingPlans,
   products,
   stats,
   testimonials,
@@ -105,7 +105,7 @@ export default function Home() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-card border border-border">
                 <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=500&fit=crop"
+                  src="/images/pages/Hero-Banner-1.jpeg"
                   alt="Dashboard preview"
                   className="w-full"
                 />
@@ -351,21 +351,23 @@ export default function Home() {
           >
             {products.slice(0, 5).map((p) => (
               <SwiperSlide key={p.id}>
-                <div className="rounded-xl overflow-hidden border border-border bg-card hover-lift">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="w-full aspect-video object-cover"
-                  />
-                  <div className="p-4">
-                    <h4 className="font-heading font-semibold text-sm">
-                      {p.name}
-                    </h4>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {p.shortDescription}
-                    </p>
+                <Link to={`/product/${p.id}`}>
+                  <div className="rounded-xl overflow-hidden border border-border bg-card hover-lift">
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      className="w-full aspect-video object-cover"
+                    />
+                    <div className="p-4">
+                      <h4 className="font-heading font-semibold text-sm">
+                        {p.name}
+                      </h4>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {p.shortDescription}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
             <div className="swiper-button-prev swiper-button-prev-demo" />
@@ -409,108 +411,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="section-padding bg-surface">
-        <div className="container-wide">
-          <SectionHeading
-            tag="Pricing"
-            title="Simple, Transparent Pricing"
-            description="Choose the plan that works best for you"
-          />
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {pricingPlans.map((p, i) => (
-              <PricingCard key={p.id} plan={p} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* LLC Pricing */}
+      <LLCPricing />
+
+      {/* POS Pricing */}
+      <POSPricing />
 
       {/* CTA */}
-      <section className="section-padding">
-        <div className="container-wide">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative rounded-2xl overflow-hidden gradient-bg p-12 md:p-16 text-center text-primary-foreground"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-foreground/5 to-transparent" />
-            <div className="relative">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-                Start Selling Your Digital Products Today
-              </h2>
-              <p className="text-lg opacity-80 mb-8 max-w-xl mx-auto">
-                Join thousands of creators earning revenue on the world's
-                fastest-growing digital marketplace.
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <Link
-                  to="/auth?mode=register"
-                  className="px-6 py-3 rounded-lg bg-primary-foreground text-foreground font-medium hover:opacity-90 transition-opacity"
-                >
-                  Become a Seller
-                </Link>
-                <Link
-                  to="/products"
-                  className="px-6 py-3 rounded-lg border border-primary-foreground/30 font-medium hover:bg-primary-foreground/10 transition-colors"
-                >
-                  Browse Marketplace
-                </Link>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* <CTA /> */}
 
       {/* Blog */}
-      <section className="section-padding bg-surface">
-        <div className="container-wide">
-          <SectionHeading
-            tag="Blog"
-            title="Resources & Insights"
-            description="Guides, tutorials, and case studies for digital product creators"
-          />
-          <div className="grid md:grid-cols-3 gap-6">
-            {blogPosts.map((post, i) => (
-              <motion.article
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="rounded-xl border border-border bg-card overflow-hidden hover-lift group"
-              >
-                <div className="aspect-[16/10] overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {post.excerpt}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Blog />
 
       {/* Newsletter */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="container-wide">
           <div className="max-w-xl mx-auto text-center">
             <SectionHeading

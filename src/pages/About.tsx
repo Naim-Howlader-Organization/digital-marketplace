@@ -1,8 +1,9 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Team from "@/components/pages/about/Team";
 import SectionHeading from "@/components/SectionHeading";
 import { motion } from "framer-motion";
-import { ArrowRight, Award, Globe, Heart, Target, Zap } from "lucide-react";
+import { ArrowRight, Globe, Heart, Target, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const values = [
@@ -29,61 +30,6 @@ const values = [
     title: "Global Community",
     description:
       "We connect creators and customers from around the world in a trusted marketplace.",
-  },
-];
-
-const teamMembers = [
-  {
-    name: "Alex Johnson",
-    role: "Founder & CEO",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-    bio: "Visionary entrepreneur with 10+ years of experience in digital marketplaces.",
-  },
-  {
-    name: "Sarah Chen",
-    role: "CTO",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face",
-    bio: "Tech innovator passionate about building scalable platforms.",
-  },
-  {
-    name: "Mike Williams",
-    role: "Head of Operations",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-    bio: "Operational excellence expert ensuring smooth marketplace operations.",
-  },
-  {
-    name: "Emma Davis",
-    role: "Head of Community",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-    bio: "Community builder fostering meaningful connections between creators.",
-  },
-];
-
-const milestones = [
-  {
-    year: "2020",
-    title: "Founded",
-    description:
-      "Skilled Zone was launched with a vision to revolutionize digital product sales.",
-  },
-  {
-    year: "2021",
-    title: "1K Sellers",
-    description: "Reached 1,000 active sellers on our platform.",
-  },
-  {
-    year: "2022",
-    title: "100K Users",
-    description: "Surpassed 100,000 registered users worldwide.",
-  },
-  {
-    year: "2024",
-    title: "1M Products",
-    description: "Reached 1 million products listed across all categories.",
   },
 ];
 
@@ -152,7 +98,7 @@ export default function About() {
               className="rounded-2xl overflow-hidden border border-border shadow-card h-96 bg-gradient-to-br from-primary/20 to-accent/20"
             >
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                src="images/pages/About-Page-Banner.jpeg"
                 alt="Our Mission"
                 className="w-full h-full object-cover"
               />
@@ -198,86 +144,13 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="section-padding bg-surface">
-        <div className="container-wide">
-          <SectionHeading
-            tag="Leadership"
-            title="Meet Our Team"
-            description="Talented individuals passionate about building the future of digital commerce"
-          />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="rounded-xl border border-border bg-card overflow-hidden hover-lift"
-              >
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-heading font-semibold">{member.name}</h3>
-                  <p className="text-xs text-primary font-medium mb-2">
-                    {member.role}
-                  </p>
-                  <p className="text-sm text-muted-foreground">{member.bio}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Team />
 
       {/* Timeline */}
-      <section className="section-padding">
-        <div className="container-wide">
-          <SectionHeading
-            tag="Journey"
-            title="Our Growth Story"
-            description="Key milestones in our journey to revolutionize digital commerce"
-          />
-          <div className="max-w-4xl mx-auto">
-            {milestones.map((milestone, i) => (
-              <motion.div
-                key={milestone.year}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className={`flex gap-8 mb-12 ${
-                  i % 2 === 1 ? "flex-row-reverse lg:flex-row-reverse" : ""
-                } items-start last:mb-0`}
-              >
-                <div className="flex-1" />
-                <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center flex-shrink-0 relative z-10">
-                  <Award className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-xs font-bold text-primary">
-                    {milestone.year}
-                  </span>
-                  <h3 className="font-heading font-semibold text-lg mb-2">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {milestone.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* <Timeline /> */}
 
       {/* Stats */}
-      <section className="section-padding bg-surface">
+      <section className="section-padding">
         <div className="container-wide">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -305,7 +178,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="container-wide">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -319,8 +192,9 @@ export default function About() {
                 Join Our Community
               </h2>
               <p className="text-lg opacity-80 mb-8 max-w-xl mx-auto">
-                Whether you're a creator looking to sell or a business seeking
-                quality digital products, Skilled Zone is the place for you.
+                Whether you're a business looking for high-quality digital
+                products or tools to grow your operations, Skilled Zone has
+                everything you need to succeed.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link

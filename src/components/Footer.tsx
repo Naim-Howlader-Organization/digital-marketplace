@@ -1,24 +1,25 @@
 import logo from "@/assets/logo.jpg";
+import { contactInfo } from "@/data/contact";
 import { Link } from "react-router-dom";
 
 const footerLinks = {
   Marketplace: [
     { label: "Browse Products", to: "/products" },
-    { label: "Categories", to: "/products" },
+    { label: "Services", to: "/products" },
     { label: "Pricing", to: "/pricing" },
     { label: "New Arrivals", to: "/products" },
   ],
   Company: [
     { label: "About", to: "/about" },
-    { label: "Careers", to: "#" },
+    { label: "Careers", to: "/career" },
     { label: "Contact", to: "/contact" },
-    { label: "Blog", to: "#" },
+    { label: "Blog", to: "/blog" },
   ],
   Support: [
-    { label: "Help Center", to: "#" },
-    { label: "FAQs", to: "#" },
-    { label: "Terms of Service", to: "#" },
-    { label: "Privacy Policy", to: "#" },
+    { label: "Help Center", to: "/help-center" },
+    { label: "FAQs", to: "/faq" },
+    { label: "Terms and Condition", to: "/terms-and-conditions" },
+    { label: "Privacy Policy", to: "/privacy-policy" },
   ],
 };
 
@@ -49,7 +50,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.to}
-                      className="text-sm opacity-60 hover:opacity-100 transition-opacity"
+                      className="text-[13px] opacity-60 hover:opacity-100 transition-opacity uppercase"
                     >
                       {link.label}
                     </Link>
@@ -61,16 +62,18 @@ export default function Footer() {
         </div>
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm opacity-50">
-            © 2024 Skilled Zone. All rights reserved.
+            © 2026 Skilled Zone. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            {["Twitter", "GitHub", "LinkedIn", "YouTube"].map((s) => (
+            {Object.entries(contactInfo.socialMedia).map(([platform, url]) => (
               <a
-                key={s}
-                href="#"
+                key={platform}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm opacity-50 hover:opacity-100 transition-opacity"
               >
-                {s}
+                {platform.charAt(0).toUpperCase() + platform.slice(1)}
               </a>
             ))}
           </div>

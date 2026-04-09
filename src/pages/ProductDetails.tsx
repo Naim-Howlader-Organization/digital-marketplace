@@ -60,7 +60,7 @@ export default function ProductDetails() {
                   className="rounded-xl overflow-hidden border border-border cursor-pointer hover:border-primary/50 transition-colors"
                 >
                   <img
-                    src={`/public/${img}`}
+                    src={`/${img}`}
                     alt=""
                     className="w-full aspect-video object-cover"
                   />

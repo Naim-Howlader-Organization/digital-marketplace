@@ -48,7 +48,7 @@ export default function ProductDetails() {
           >
             <div className="rounded-2xl overflow-hidden border border-border mb-4">
               <img
-                src={`/public/${product.image}`}
+                src={`/${product.image}`}
                 alt={product.name}
                 className="w-full aspect-video object-cover"
               />

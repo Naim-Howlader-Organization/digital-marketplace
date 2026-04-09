@@ -12,7 +12,7 @@ function POSPricing() {
         />
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {posPricingPlans.map((p, i) => (
-            <PricingCard key={p.id} plan={p} index={i} />
+            <PricingCard key={p.id} plan={p} index={i} currency="৳" />
           ))}
         </div>
       </div>

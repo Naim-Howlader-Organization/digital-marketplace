@@ -169,9 +169,15 @@ export default function ProductDetails() {
                   </span>
                 )}
               </div>
-              <button className="w-full py-3 rounded-lg gradient-bg text-primary-foreground font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-3">
-                <ShoppingCart className="w-4 h-4" /> Buy Now
-              </button>
+              <a
+                href="https://wa.me/8801339517727"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="w-full py-3 rounded-lg gradient-bg text-primary-foreground font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-3">
+                  <ShoppingCart className="w-4 h-4" /> Buy Now
+                </button>
+              </a>
               <button className="w-full py-3 rounded-lg border border-border font-medium flex items-center justify-center gap-2 hover:bg-muted/50 transition-colors">
                 <Download className="w-4 h-4" /> Download Trial
               </button>

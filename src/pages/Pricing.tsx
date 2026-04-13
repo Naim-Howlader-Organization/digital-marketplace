@@ -182,7 +182,7 @@ export default function Pricing() {
             </p>
 
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center gap-4">
+            {/* <div className="flex items-center justify-center gap-4">
               <div className="inline-flex items-center gap-1 p-1 rounded-lg bg-muted/50 border border-border">
                 <button
                   onClick={() => setBillingPeriod("monthly")}
@@ -208,7 +208,7 @@ export default function Pricing() {
               <span className="text-sm text-success font-medium">
                 Save 20% on annual 💰
               </span>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -217,7 +217,7 @@ export default function Pricing() {
       <section className="section-padding">
         <div className="container-wide">
           <SectionHeading
-            tag="POS Pricing"
+            tag="LLC Packages"
             title="SkilledZone LLC Packages"
             description="Choose the service package that fits your business formation needs"
           />

@@ -17,15 +17,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface ShippingData {
-  firstName: string;
-  lastName: string;
-  email: string;
+  name: string;
   phone: string;
+  email: string;
   address: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  country: string;
 }
 
 interface PaymentData {
@@ -94,15 +89,10 @@ export default function Checkout() {
   const [sameAsBilling, setSameAsBilling] = useState(true);
   const [termsAccepted, setTermsAccepted] = useState(true);
   const [shippingData, setShippingData] = useState<ShippingData>({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
     address: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    country: "United States",
   });
 
   const [paymentData, setPaymentData] = useState<PaymentData>({
@@ -166,28 +156,24 @@ export default function Checkout() {
   const validateShippingForm = (): boolean => {
     const newErrors: { [key: string]: string } = {};
 
-    if (!shippingData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
+    if (!shippingData.name.trim()) {
+      newErrors.name = "Name is required";
     }
-    if (!shippingData.lastName.trim()) {
-      newErrors.lastName = "Last name is required";
-    }
-    if (!shippingData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(shippingData.email)) {
+
+    // Email optional, validate only if provided
+    if (
+      shippingData.email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(shippingData.email)
+    ) {
       newErrors.email = "Please enter a valid email";
     }
+
+    if (!shippingData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    }
+
     if (!shippingData.address.trim()) {
       newErrors.address = "Street address is required";
-    }
-    if (!shippingData.city.trim()) {
-      newErrors.city = "City is required";
-    }
-    if (!shippingData.state.trim()) {
-      newErrors.state = "State/Province is required";
-    }
-    if (!shippingData.zipCode.trim()) {
-      newErrors.zipCode = "ZIP code is required";
     }
 
     setErrors((prev) => ({
@@ -370,48 +356,69 @@ export default function Checkout() {
                     </p>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        First Name
+                        Name <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
-                        name="firstName"
-                        value={shippingData.firstName}
+                        name="name"
+                        value={shippingData.name}
                         onChange={handleInputChange}
                         placeholder="John"
                         className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
-                          errors.shipping.firstName
+                          errors.shipping.name
                             ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
                             : "border-border focus:ring-primary/20 focus:border-primary/50"
                         }`}
                       />
-                      {errors.shipping.firstName && (
+                      {errors.shipping.name && (
                         <p className="text-red-500 text-xs mt-1">
-                          {errors.shipping.firstName}
+                          {errors.shipping.name}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-y-6 md:gap-y-0 md:grid-cols-2 md:gap-x-8">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">
+                        Phone Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={shippingData.phone}
+                        onChange={handleInputChange}
+                        placeholder="+1 (555) 123-4567"
+                        className="w-full px-4 py-2.5 rounded-lg bg-muted/50 border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
+                      />
+                      {errors.shipping.phone && (
+                        <p className="text-red-500 text-xs mt-1">
+                          {errors.shipping.phone}
                         </p>
                       )}
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Last Name
+                        Email Address
                       </label>
                       <input
-                        type="text"
-                        name="lastName"
-                        value={shippingData.lastName}
+                        type="email"
+                        name="email"
+                        value={shippingData.email}
                         onChange={handleInputChange}
-                        placeholder="Doe"
+                        placeholder="john@example.com"
                         className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
-                          errors.shipping.lastName
+                          errors.shipping.email
                             ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
                             : "border-border focus:ring-primary/20 focus:border-primary/50"
                         }`}
                       />
-                      {errors.shipping.lastName && (
+                      {errors.shipping.email && (
                         <p className="text-red-500 text-xs mt-1">
-                          {errors.shipping.lastName}
+                          {errors.shipping.email}
                         </p>
                       )}
                     </div>
@@ -419,151 +426,27 @@ export default function Checkout() {
 
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Email Address
+                      Address <span className="text-red-500">*</span>
                     </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={shippingData.email}
-                      onChange={handleInputChange}
-                      placeholder="john@example.com"
-                      className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
-                        errors.shipping.email
-                          ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
-                          : "border-border focus:ring-primary/20 focus:border-primary/50"
-                      }`}
-                    />
-                    {errors.shipping.email && (
-                      <p className="text-red-500 text-xs mt-1">
-                        {errors.shipping.email}
-                      </p>
-                    )}
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={shippingData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+1 (555) 123-4567"
-                      className="w-full px-4 py-2.5 rounded-lg bg-muted/50 border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Street Address
-                    </label>
-                    <input
-                      type="text"
+                    <textarea
                       name="address"
                       value={shippingData.address}
                       onChange={handleInputChange}
                       placeholder="123 Main Street"
+                      rows={4}
                       className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
                         errors.shipping.address
                           ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
                           : "border-border focus:ring-primary/20 focus:border-primary/50"
                       }`}
                     />
+
                     {errors.shipping.address && (
                       <p className="text-red-500 text-xs mt-1">
                         {errors.shipping.address}
                       </p>
                     )}
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        City
-                      </label>
-                      <input
-                        type="text"
-                        name="city"
-                        value={shippingData.city}
-                        onChange={handleInputChange}
-                        placeholder="San Francisco"
-                        className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
-                          errors.shipping.city
-                            ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
-                            : "border-border focus:ring-primary/20 focus:border-primary/50"
-                        }`}
-                      />
-                      {errors.shipping.city && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.shipping.city}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        State/Province
-                      </label>
-                      <input
-                        type="text"
-                        name="state"
-                        value={shippingData.state}
-                        onChange={handleInputChange}
-                        placeholder="CA"
-                        className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
-                          errors.shipping.state
-                            ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
-                            : "border-border focus:ring-primary/20 focus:border-primary/50"
-                        }`}
-                      />
-                      {errors.shipping.state && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.shipping.state}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        ZIP Code
-                      </label>
-                      <input
-                        type="text"
-                        name="zipCode"
-                        value={shippingData.zipCode}
-                        onChange={handleInputChange}
-                        placeholder="94105"
-                        className={`w-full px-4 py-2.5 rounded-lg bg-muted/50 border text-sm focus:outline-none focus:ring-2 transition-all ${
-                          errors.shipping.zipCode
-                            ? "border-red-500 focus:ring-red-500/20 focus:border-red-500"
-                            : "border-border focus:ring-primary/20 focus:border-primary/50"
-                        }`}
-                      />
-                      {errors.shipping.zipCode && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.shipping.zipCode}
-                        </p>
-                      )}
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Country
-                      </label>
-                      <select
-                        name="country"
-                        value={shippingData.country}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-2.5 rounded-lg bg-muted/50 border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
-                      >
-                        <option>United States</option>
-                        <option>Canada</option>
-                        <option>United Kingdom</option>
-                        <option>Australia</option>
-                        <option>Germany</option>
-                      </select>
-                    </div>
                   </div>
 
                   <div className="flex items-center gap-3 pt-4 border-t border-border/50">
@@ -701,28 +584,27 @@ export default function Checkout() {
                         <p className="text-sm text-muted-foreground mb-1">
                           Name
                         </p>
-                        <p className="font-medium">
-                          {shippingData.firstName} {shippingData.lastName}
+                        <p className="font-medium">{shippingData.name}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          Phone
                         </p>
+                        <p className="font-medium">{shippingData.phone}</p>
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">
                           Email
                         </p>
-                        <p className="font-medium">{shippingData.email}</p>
+                        <p className="font-medium">
+                          {shippingData.email ?? "N/A"}
+                        </p>
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">
                           Address
                         </p>
-                        <p className="font-medium">
-                          {shippingData.address}
-                          <br />
-                          {shippingData.city}, {shippingData.state}{" "}
-                          {shippingData.zipCode}
-                          <br />
-                          {shippingData.country}
-                        </p>
+                        <p className="font-medium">{shippingData.address}</p>
                       </div>
                     </div>
                   </div>

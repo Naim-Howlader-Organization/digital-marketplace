@@ -15,6 +15,7 @@ import Pricing from "./pages/Pricing";
 import ProductDetails from "./pages/ProductDetails";
 import Products from "./pages/Products";
 
+import ScrollToTop from "./components/ScrollToTop";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import Career from "./pages/Career";
@@ -31,6 +32,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products" element={<Products />} />

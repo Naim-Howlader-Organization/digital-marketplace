@@ -399,38 +399,38 @@ export const products: Product[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "1",
-    name: "Sarah Chen",
-    role: "CEO at TechStart",
-    avatar: "images/testimonials/Person-1.jpeg",
+    name: "Tanvir Hasan",
+    role: "Founder at DhakaTech Solutions",
+    avatar: "images/testimonials/Person-BD1.webp",
     review:
-      "This marketplace has been a game-changer for our startup. We found all the tools we needed in one place, saving us months of development time.",
+      "এই মার্কেটপ্লেস থেকে আমাদের ব্যবসার জন্য প্রয়োজনীয় ডিজিটাল টুল খুব সহজে পেয়েছি। অনেক সময় এবং খরচ বাঁচিয়েছে, সত্যিই দারুণ একটি প্ল্যাটফর্ম।",
     rating: 5,
   },
   {
     id: "2",
-    name: "Marcus Johnson",
-    role: "Head of Marketing, ScaleUp",
-    avatar: "images/testimonials/Person-2.jpeg",
+    name: "Emon Chowdhury",
+    role: "Marketing Manager, GrowFast BD",
+    avatar: "images/testimonials/Person-BD2.webp",
     review:
-      "The quality of digital products here is outstanding. Every tool we've purchased has exceeded our expectations.",
+      "এখানকার ডিজিটাল প্রোডাক্টগুলোর মান খুবই ভালো। যেগুলো কিনেছি সবগুলোই কাজের ক্ষেত্রে প্রত্যাশার চেয়ে বেশি উপকার করেছে।",
     rating: 5,
   },
   {
     id: "3",
-    name: "Emily Rodriguez",
-    role: "Freelance Designer",
-    avatar: "images/testimonials/Person-3.jpeg",
+    name: "Mahin Ahmed",
+    role: "Freelance UI/UX Designer",
+    avatar: "images/testimonials/Person-BD3.webp",
     review:
-      "As a designer, the UI kits and templates saved me countless hours. The marketplace curation is top-notch.",
+      "ডিজাইনার হিসেবে এখানকার টেমপ্লেট আর UI কিটগুলো আমার অনেক সময় বাঁচিয়েছে। কাজের মানও খুব প্রফেশনাল লেগেছে।",
     rating: 4,
   },
   {
     id: "4",
-    name: "David Park",
-    role: "CTO at CloudNine",
-    avatar: "images/testimonials/Person-4.jpeg",
+    name: "Arman Rahman",
+    role: "CTO at SoftEdge Bangladesh",
+    avatar: "images/testimonials/Person-BD4.webp",
     review:
-      "We've integrated several SaaS tools from this marketplace into our stack. The quality and support are exceptional.",
+      "আমাদের টিমের জন্য এখান থেকে নেওয়া কয়েকটি সফটওয়্যার নিয়মিত ব্যবহার করছি। কোয়ালিটি এবং সাপোর্ট দুইটাই সন্তোষজনক।",
     rating: 5,
   },
 ];
@@ -457,7 +457,7 @@ export const pricingPlans: PricingPlan[] = [
     name: "Complete LLC Business Package",
     price: 359,
     period: "one-time",
-    description: "Everything you need to start your business in the US",
+    description: "Everything you need to start your business",
     features: [
       "US LLC registration",
       "EIN (Tax ID) filing with IRS",

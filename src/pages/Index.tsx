@@ -5,16 +5,10 @@ import Navbar from "@/components/Navbar";
 import Blog from "@/components/pages/home/Blog";
 import LLCPricing from "@/components/pages/home/LLCPricing";
 import POSPricing from "@/components/pages/home/POSPricing";
+import Testimonial from "@/components/pages/home/Testimonial";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
-import TestimonialCard from "@/components/TestimonialCard";
-import {
-  benefits,
-  categories,
-  products,
-  stats,
-  testimonials,
-} from "@/data/marketplace";
+import { benefits, categories, products, stats } from "@/data/marketplace";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -377,39 +371,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding">
-        <div className="container-wide">
-          <SectionHeading
-            tag="Testimonials"
-            title="Loved by Thousands"
-            description="See what our customers have to say"
-          />
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={20}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              1024: { slidesPerView: 3, spaceBetween: 20 },
-            }}
-            navigation={{
-              nextEl: ".swiper-button-next-testimonials",
-              prevEl: ".swiper-button-prev-testimonials",
-            }}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 6000, disableOnInteraction: true }}
-            className="pb-10 relative"
-          >
-            {testimonials.map((t) => (
-              <SwiperSlide key={t.id}>
-                <TestimonialCard testimonial={t} />
-              </SwiperSlide>
-            ))}
-            <div className="swiper-button-prev swiper-button-prev-testimonials" />
-            <div className="swiper-button-next swiper-button-next-testimonials" />
-          </Swiper>
-        </div>
-      </section>
+      <Testimonial />
 
       {/* LLC Pricing */}
       <LLCPricing />

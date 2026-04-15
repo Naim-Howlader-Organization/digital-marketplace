@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
+import { contactInfo } from "@/data/contact";
 import { products } from "@/data/marketplace";
 import { motion } from "framer-motion";
 import { ArrowLeft, Check, Download, ShoppingCart, Star } from "lucide-react";
@@ -170,7 +171,7 @@ export default function ProductDetails() {
                 )}
               </div>
               <a
-                href="https://wa.me/8801339517727"
+                href={contactInfo.socialMedia.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -179,7 +180,7 @@ export default function ProductDetails() {
                 </button>
               </a>
               <button className="w-full py-3 rounded-lg border border-border font-medium flex items-center justify-center gap-2 hover:bg-muted/50 transition-colors">
-                <Download className="w-4 h-4" /> Download Trial
+                <Download className="w-4 h-4" /> View Demo
               </button>
               <div className="mt-6 pt-6 border-t border-border/50 space-y-3">
                 {[

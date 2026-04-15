@@ -2,9 +2,6 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import CategoryCard from "@/components/CategoryCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import Blog from "@/components/pages/home/Blog";
-import LLCPricing from "@/components/pages/home/LLCPricing";
-import POSPricing from "@/components/pages/home/POSPricing";
 import Testimonial from "@/components/pages/home/Testimonial";
 import ProductCard from "@/components/ProductCard";
 import SectionHeading from "@/components/SectionHeading";
@@ -55,7 +52,7 @@ export default function Home() {
               </span>
               <h1 className="text-hero lg:text-hero-lg mb-6">
                 Discover Premium{" "}
-                <span className="gradient-text">Digital Products</span> &
+                <span className="gradient-text">Digital Services</span> &
                 Business Software
               </h1>
               <p className="text-sub text-muted-foreground mb-8 max-w-lg">
@@ -374,42 +371,19 @@ export default function Home() {
       <Testimonial />
 
       {/* LLC Pricing */}
-      <LLCPricing />
+      {/* <LLCPricing /> */}
 
       {/* POS Pricing */}
-      <POSPricing />
+      {/* <POSPricing /> */}
 
       {/* CTA */}
       {/* <CTA /> */}
 
       {/* Blog */}
-      <Blog />
+      {/* <Blog /> */}
 
       {/* Newsletter */}
-      <section className="section-padding bg-surface">
-        <div className="container-wide">
-          <div className="max-w-xl mx-auto text-center">
-            <SectionHeading
-              tag="Newsletter"
-              title="Stay Updated"
-              description="Get the latest products and marketplace news delivered to your inbox"
-            />
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-muted/50 border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/50 transition-all"
-              />
-              <button className="px-6 py-3 rounded-lg gradient-bg text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity whitespace-nowrap">
-                Subscribe
-              </button>
-            </div>
-            <p className="text-xs text-muted-foreground mt-3">
-              No spam. Unsubscribe anytime.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* <NewsLetter /> */}
 
       <Footer />
     </div>

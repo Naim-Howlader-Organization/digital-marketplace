@@ -7,6 +7,7 @@ export const contactInfo = {
   socialMedia: {
     facebook: "https://www.facebook.com/inskilledzone",
     linkedin: "https://linkedin.com/company/inskilledzone",
-    youtube: "https://www.youtube.com/@inskilledzone",
+    youTube: "https://www.youtube.com/@inskilledzone",
+    whatsapp: "https://wa.me/8801339517727",
   },
 };

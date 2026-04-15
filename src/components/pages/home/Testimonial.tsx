@@ -1,11 +1,18 @@
 import SectionHeading from "@/components/SectionHeading";
-import TestimonialCard from "@/components/TestimonialCard";
-import { testimonials } from "@/data/marketplace";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { BadgeCheck, Star } from "lucide-react";
+
+const reviewPlatforms = [
+  {
+    id: 1,
+    name: "Trustpilot",
+    link: "https://www.trustpilot.com/review/inskilledzone.com",
+  },
+  {
+    id: 2,
+    name: "Google Reviews",
+    link: "https://g.page/r/CWzOGhxgB4f2EAE/review",
+  },
+];
 
 function Testimonial() {
   return (
@@ -13,33 +20,41 @@ function Testimonial() {
       <div className="container-wide">
         <SectionHeading
           tag="Testimonials"
-          title="Loved by Thousands"
-          description="See what our customers have to say"
+          title="Trusted by Our Customers"
+          description="See our verified reviews on trusted platforms"
         />
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 2, spaceBetween: 20 },
-            1024: { slidesPerView: 3, spaceBetween: 20 },
-          }}
-          navigation={{
-            nextEl: ".swiper-button-next-testimonials",
-            prevEl: ".swiper-button-prev-testimonials",
-          }}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 6000, disableOnInteraction: true }}
-          className="pb-10 relative"
-        >
-          {testimonials.map((t) => (
-            <SwiperSlide key={t.id}>
-              <TestimonialCard testimonial={t} />
-            </SwiperSlide>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+          {reviewPlatforms.map((platform) => (
+            <a
+              key={platform.id}
+              href={platform.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-border bg-card p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <BadgeCheck className="w-7 h-7 text-primary" />
+                </div>
+
+                <h3 className="text-xl font-semibold text-heading">
+                  {platform.name}
+                </h3>
+
+                <div className="flex items-center gap-1 text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400" />
+                  ))}
+                </div>
+
+                <p className="text-sm text-muted-foreground group-hover:text-primary transition">
+                  Click to view reviews
+                </p>
+              </div>
+            </a>
           ))}
-          <div className="swiper-button-prev swiper-button-prev-testimonials" />
-          <div className="swiper-button-next swiper-button-next-testimonials" />
-        </Swiper>
+        </div>
       </div>
     </section>
   );

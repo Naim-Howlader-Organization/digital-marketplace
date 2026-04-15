@@ -52,3 +52,29 @@ export const termsAndConditionsContent = {
     },
   ],
 };
+
+export const refundPolicyContent = {
+  title: "Refund Policy",
+  sections: [
+    {
+      heading: "Overview",
+      body: `We aim to provide high-quality digital products and services. If you are not satisfied with your purchase, you may request a refund according to the terms below.`,
+    },
+    {
+      heading: "Eligibility for Refund",
+      body: `Refund requests are accepted for eligible products within 7 days of purchase. To qualify, your request should include a valid reason and your order details.`,
+    },
+    {
+      heading: "Non-Refundable Cases",
+      body: `Completed custom work, delivered consultation sessions, and services that have been fully consumed are generally non-refundable unless explicitly stated otherwise.`,
+    },
+    {
+      heading: "How to Request",
+      body: `Contact our support team with your order ID, registered email, and a short explanation of the issue. We review each request carefully and respond as quickly as possible.`,
+    },
+    {
+      heading: "Processing Time",
+      body: `Approved refunds are usually processed within 5-10 business days through the original payment method. Processing times may vary depending on your payment provider.`,
+    },
+  ],
+};

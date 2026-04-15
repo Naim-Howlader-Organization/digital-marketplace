@@ -55,6 +55,148 @@ export interface BlogPost {
   image: string;
 }
 
+export type ServiceItem = {
+  id: string;
+  name: string;
+  slug: string;
+  href: string;
+};
+
+export type Service = {
+  id: string;
+  name: string;
+  slug: string;
+  items: ServiceItem[];
+};
+
+export const services: Service[] = [
+  {
+    id: "1",
+    name: "SaaS Solutions",
+    slug: "saas-solutions",
+    items: [
+      {
+        id: "1",
+        name: "Software Setup & Management",
+        slug: "software-setup-management",
+        href: "/saas-solutions/software-setup-management",
+      },
+      {
+        id: "2",
+        name: "Subscription Tools Integration",
+        slug: "subscription-tools-integration",
+        href: "/comming-soon",
+      },
+    ],
+  },
+
+  {
+    id: "2",
+    name: "Web Development & Services",
+    slug: "web-development-services",
+    items: [
+      {
+        id: "1",
+        name: "Website Design & Development",
+        slug: "website-design-development",
+        href: "/products",
+      },
+      {
+        id: "2",
+        name: "Website Maintenance & Support",
+        slug: "website-maintenance-support",
+        href: "/comming-soon",
+      },
+    ],
+  },
+
+  {
+    id: "3",
+    name: "LLC Formation Services",
+    slug: "llc-formation-services",
+    items: [
+      {
+        id: "1",
+        name: "Company Registration",
+        slug: "company-registration",
+        href: "/comming-soon",
+      },
+      {
+        id: "2",
+        name: "Documentation & Compliance Support",
+        slug: "documentation-compliance-support",
+        href: "/llc-formation/documentation",
+      },
+    ],
+  },
+
+  {
+    id: "4",
+    name: "Digital Marketing Services",
+    slug: "digital-marketing-services",
+    items: [
+      {
+        id: "1",
+        name: "Ad Campaign Management",
+        slug: "ad-campaign-management",
+        href: "/comming-soon",
+      },
+      {
+        id: "2",
+        name: "Social Media Marketing",
+        slug: "social-media-marketing",
+        href: "/comming-soon",
+      },
+      {
+        id: "3",
+        name: "SEO Optimization",
+        slug: "seo-optimization",
+        href: "/comming-soon",
+      },
+    ],
+  },
+
+  {
+    id: "5",
+    name: "Ad Account & Funding Services",
+    slug: "ad-account-funding-services",
+    items: [
+      {
+        id: "1",
+        name: "Ad Account Setup",
+        slug: "ad-account-setup",
+        href: "/comming-soon",
+      },
+      {
+        id: "2",
+        name: "Ad Account Balance Funding",
+        slug: "ad-account-balance-funding",
+        href: "/ad-account/balance-funding",
+      },
+    ],
+  },
+
+  {
+    id: "6",
+    name: "Payment Gateway Solutions",
+    slug: "payment-gateway-solutions",
+    items: [
+      {
+        id: "1",
+        name: "Payment Gateway Integration",
+        slug: "payment-gateway-integration",
+        href: "/comming-soon",
+      },
+      {
+        id: "2",
+        name: "Payment Processing Setup",
+        slug: "payment-processing-setup",
+        href: "/comming-soon",
+      },
+    ],
+  },
+];
+
 export const categories: Category[] = [
   {
     id: "1",

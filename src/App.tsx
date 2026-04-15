@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Auth from "./pages/Auth";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import CommingSoon from "./pages/CommingSoon";
 import Contact from "./pages/Contact";
 import DollarLoad from "./pages/DollarLoad";
 import Index from "./pages/Index";
@@ -14,14 +15,19 @@ import NotFound from "./pages/NotFound";
 import Pricing from "./pages/Pricing";
 import ProductDetails from "./pages/ProductDetails";
 import Products from "./pages/Products";
+import RefundPolicy from "./pages/RefundPolicy";
 
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import ScrollToTop from "./components/ScrollToTop";
+import BalanceFunding from "./pages/ad-account/BalanceFunding";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import Career from "./pages/Career";
 import FAQ from "./pages/FAQ";
 import HelpCenter from "./pages/HelpCenter";
+import Documentation from "./pages/llc/Documentation";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import SoftwareSetupManagement from "./pages/saas-solution/SoftwareSetupManagement";
 import TermsAndConditions from "./pages/TermsAndConditions";
 
 const queryClient = new QueryClient();
@@ -31,6 +37,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <FloatingWhatsApp />
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
@@ -43,8 +50,22 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/comming-soon" element={<CommingSoon />} />
           <Route path="/dollar-load" element={<DollarLoad />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route
+            path="/ad-account/balance-funding"
+            element={<BalanceFunding />}
+          />
+          <Route
+            path="/llc-formation/documentation"
+            element={<Documentation />}
+          />
+          <Route
+            path="/saas-solutions/software-setup-management"
+            element={<SoftwareSetupManagement />}
+          />
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditions />}

@@ -6,7 +6,6 @@ const footerLinks = {
   Marketplace: [
     { label: "Browse Products", to: "/products" },
     { label: "Services", to: "/products" },
-    { label: "Pricing", to: "/pricing" },
     { label: "New Arrivals", to: "/products" },
   ],
   Company: [
@@ -20,6 +19,7 @@ const footerLinks = {
     { label: "FAQs", to: "/faq" },
     { label: "Terms and Condition", to: "/terms-and-conditions" },
     { label: "Privacy Policy", to: "/privacy-policy" },
+    { label: "Refund Policy", to: "/refund-policy" },
   ],
 };
 
